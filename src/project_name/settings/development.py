@@ -15,6 +15,9 @@ if "celery" in sys.argv[0]:
 INSTALLED_APPS += (
     'debug_toolbar.apps.DebugToolbarConfig',)
 
+MIDDLEWARE_CLASSES.insert(0,
+    'debug_toolbar.middleware.DebugToolbarMiddleware',)
+
 # Show emails to console in DEBUG mode
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
