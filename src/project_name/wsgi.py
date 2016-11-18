@@ -20,7 +20,7 @@ if settings.DEBUG:
         import six
         from werkzeug.debug import DebuggedApplication
 
-        def null_technical_500_response(request, exc_type, exc_value, tb):
+        def null_technical_500_response(request, exc_type, exc_value, tb, status_code=400):
             six.reraise(exc_type, exc_value, tb)
 
         django.views.debug.technical_500_response = null_technical_500_response
