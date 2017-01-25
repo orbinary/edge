@@ -2,6 +2,16 @@
 if [ $# -eq 0 ]; then
    echo "Usage: $0 project_name [port]"
 else
+   if [[ -d "requirements" ]]; then
+      echo ""
+      tput bold;
+      printf "Error: "
+      tput sgr 0;
+      printf "Invoke this command from another directory."
+      echo ""
+      exit
+   fi
+
    pip3 install -U pip
    pip3 install -U django
    if [[ -d "$1" && ! -L "$1" ]]; then
